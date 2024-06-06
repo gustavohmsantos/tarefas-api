@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using TarefasWebApi.Enums;
 
 namespace TarefasWebApi.Models
 {
@@ -11,7 +12,7 @@ namespace TarefasWebApi.Models
 
         public string? Descricao { get; set; }
 
-        public int Status { get; set; }
+        public TarefaSatusEnum Status { get; set; }
 
         public UsuarioModel Usuario { get; set; }
 
