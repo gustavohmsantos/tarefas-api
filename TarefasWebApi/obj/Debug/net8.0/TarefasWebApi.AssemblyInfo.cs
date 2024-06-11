@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TarefasWebApi")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0b4c2ebb84a25a86616f3a3f0e2de9f1146e8d71")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b414536c9a3212586d0901d86454b974269f9b85")]
 [assembly: System.Reflection.AssemblyProductAttribute("TarefasWebApi")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TarefasWebApi")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
