@@ -9,7 +9,7 @@ namespace TarefasWebApi.Services.Usuario
 
         Task<ApiResponseModel<UsuarioModel>> ListarUsuarioPorIdUsuario(int idUsuario);
 
-        Task<ApiResponseModel<UsuarioModel>> ListarUsuarioPorIdTarefa(int idUsuario);
+        Task<ApiResponseModel<UsuarioModel>> ListarUsuarioPorIdTarefa(int idTarefa);
 
         Task<ApiResponseModel<List<UsuarioModel>>> CriarUsuario(CriarUsuarioDto criarUsuarioDto);
 
