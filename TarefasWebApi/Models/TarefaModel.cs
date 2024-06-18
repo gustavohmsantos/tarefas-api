@@ -12,7 +12,7 @@ namespace TarefasWebApi.Models
 
         public string? Descricao { get; set; }
 
-        public TarefaSatusEnum Status { get; set; }
+        public TarefaStatusEnum Status { get; set; }
 
         public UsuarioModel Usuario { get; set; }
 

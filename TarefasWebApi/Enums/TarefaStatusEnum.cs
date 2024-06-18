@@ -2,7 +2,7 @@
 
 namespace TarefasWebApi.Enums
 {
-    public enum TarefaSatusEnum
+    public enum TarefaStatusEnum
     {
         [Description("A fazer")]
         AFazer = 1,
