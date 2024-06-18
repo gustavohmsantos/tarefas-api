@@ -5,9 +5,9 @@ namespace TarefasWebApi.Dtos.Tarefa
 {
     public class CriarTarefaDto
     {
-        public int Nome { get; set; }
+        public string Nome { get; set; }
         public string Descricao { get; set; }
         public TarefaStatusEnum Status { get; set; }
-        public int UsuarioId { get; set; }
+        public UsuarioModel Usuario { get; set; }
     }
 }
