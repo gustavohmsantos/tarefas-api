@@ -25,7 +25,7 @@ namespace TarefasWebApi.Controllers
         }
 
         [HttpGet("ListarUsuarioPorIdUsuario/{idUsuario}")]
-        public async Task<ActionResult<ApiResponseModel<List<UsuarioModel>>>> ListarUsuarioPorIdUsuario(int idUsuario)
+        public async Task<ActionResult<ApiResponseModel<UsuarioModel>>> ListarUsuarioPorIdUsuario(int idUsuario)
         {
             var usuario = await _iUsuarioService.ListarUsuarioPorIdUsuario(idUsuario);
             return Ok(usuario);
