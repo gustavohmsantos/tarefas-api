@@ -17,6 +17,7 @@ namespace TarefasWebApi.Controllers
             _iTarefaService = iTarefaService;
         }
 
+        [HttpGet("ListarTarefas")]
         public async Task<ActionResult<ApiResponseModel<List<TarefaModel>>>> ListarTarefas()
         {
             var tarefas = await _iTarefaService.ListarTarefas();
@@ -33,7 +34,7 @@ namespace TarefasWebApi.Controllers
         [HttpGet("ListarTarefasPorIdUsuario/{idUsuario}")]
         public async Task<ActionResult<ApiResponseModel<List<TarefaModel>>>> ListarTarefasPorIdUsuario(int idUsuario)
         {
-            var tarefas = await _iTarefaService.ListarTarefaPorIdTarefa(idUsuario);
+            var tarefas = await _iTarefaService.ListarTarefasPorIdUsuario(idUsuario);
             return Ok(tarefas);
         }
 
