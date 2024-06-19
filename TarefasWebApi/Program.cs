@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using TarefasWebApi.Data;
+using TarefasWebApi.Services.Tarefa;
 using TarefasWebApi.Services.Usuario;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -12,6 +13,8 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddScoped<IUsuarioService, UsuarioService>();
+
+builder.Services.AddScoped<ITarefaService, TarefaService>();
 
 builder.Services.AddDbContext<AppDbContext>(options =>
 {
