@@ -52,7 +52,7 @@ namespace TarefasWebApi.Controllers
             return Ok(usuarios);
         }
 
-        [HttpPut("DeletarUsuario/{idUsuario}")]
+        [HttpDelete("DeletarUsuario/{idUsuario}")]
         public async Task<ActionResult<ApiResponseModel<List<UsuarioModel>>>> DeletarUsuario(int idUsuario)
         {
             var usuarios = await _iUsuarioService.DeletarUsuario(idUsuario);

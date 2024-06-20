@@ -38,21 +38,21 @@ namespace TarefasWebApi.Controllers
             return Ok(tarefas);
         }
 
-        [HttpGet("CriarTarefa")]
+        [HttpPost("CriarTarefa")]
         public async Task<ActionResult<ApiResponseModel<List<TarefaModel>>>> CriarTarefa(CriarTarefaDto criarTarefaDto)
         {
             var tarefas = await _iTarefaService.CriarTarefa(criarTarefaDto);
             return Ok(tarefas);
         }
 
-        [HttpGet("EditarTarefa")]
+        [HttpPut("EditarTarefa")]
         public async Task<ActionResult<ApiResponseModel<List<TarefaModel>>>> EditarTarefa(EditarTarefaDto editarTarefaDto)
         {
             var tarefas = await _iTarefaService.EditarTarefa(editarTarefaDto);
             return Ok(tarefas);
         }
 
-        [HttpGet("DeletarTarefa/{idTarefa}")]
+        [HttpDelete("DeletarTarefa/{idTarefa}")]
         public async Task<ActionResult<ApiResponseModel<List<TarefaModel>>>> DeletarTarefa(int idTarefa)
         {
             var tarefas = await _iTarefaService.DeletarTarefa(idTarefa);
