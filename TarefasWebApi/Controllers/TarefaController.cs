@@ -10,7 +10,7 @@ namespace TarefasWebApi.Controllers
     [ApiController]
     public class TarefaController : ControllerBase
     {
-        readonly private ITarefaService _iTarefaService;
+        private readonly ITarefaService _iTarefaService;
 
         public TarefaController(ITarefaService iTarefaService)
         {

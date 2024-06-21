@@ -7,7 +7,7 @@ namespace TarefasWebApi.Services.Tarefa
 {
     public class TarefaService : ITarefaService
     {
-        AppDbContext _appDbContext;
+        private readonly AppDbContext _appDbContext;
 
         public TarefaService(AppDbContext appDbContext)
         {
@@ -20,15 +20,25 @@ namespace TarefasWebApi.Services.Tarefa
 
             try
             {
+
+                var usuario = await _appDbContext.Usuarios
+                     .FirstOrDefaultAsync(dbUsuario => dbUsuario.Id == criarTarefaDto.Usuario.Id);
+
+                if (usuario == null)
+                {
+                    apiResponse.Mensagem = "Nenhum usuário encontrado!";
+                    return apiResponse;
+                }
+
                 var tarefa = new TarefaModel()
                 {
                     Nome = criarTarefaDto.Nome,
                     Descricao = criarTarefaDto.Descricao,
                     Status = criarTarefaDto.Status,
-                    Usuario = criarTarefaDto.Usuario,
+                    Usuario = usuario,
                 };
 
-                _appDbContext.Tarefas.Add(tarefa);
+                _appDbContext.Add(tarefa);
                 await _appDbContext.SaveChangesAsync();
 
                 apiResponse.Dados = await _appDbContext.Tarefas.ToListAsync();
@@ -63,7 +73,8 @@ namespace TarefasWebApi.Services.Tarefa
                 _appDbContext.Tarefas.Remove(tarefa);
                 await _appDbContext.SaveChangesAsync();
 
-                apiResponse.Dados = await _appDbContext.Tarefas.ToListAsync();
+                apiResponse.Dados = await _appDbContext.Tarefas.
+                    Include(db => db.Usuario).ToListAsync();
                 apiResponse.Mensagem = "Tarefa deletada com sucesso!";
 
                 return apiResponse;
@@ -111,7 +122,8 @@ namespace TarefasWebApi.Services.Tarefa
                 _appDbContext.Update(tarefa);
                 await _appDbContext.SaveChangesAsync();
 
-                apiResponse.Dados = await _appDbContext.Tarefas.ToListAsync();
+                apiResponse.Dados = await _appDbContext.Tarefas
+                    .Include(db => db.Usuario).ToListAsync();
                 apiResponse.Mensagem = "Tarefa editada com sucesso!";
 
                 return apiResponse;
@@ -132,7 +144,7 @@ namespace TarefasWebApi.Services.Tarefa
 
             try
             {
-                var tarefa = await _appDbContext.Tarefas.FirstOrDefaultAsync(dbTarefa => dbTarefa.Id == idTarefa);
+                var tarefa = await _appDbContext.Tarefas.Include(db => db.Usuario).FirstOrDefaultAsync(dbTarefa => dbTarefa.Id == idTarefa);
 
                 if(tarefa == null)
                 {
@@ -162,7 +174,7 @@ namespace TarefasWebApi.Services.Tarefa
             try
             {
 
-                var tarefas = await _appDbContext.Tarefas.ToListAsync();
+                var tarefas = await _appDbContext.Tarefas.Include(db => db.Usuario).ToListAsync();
 
                 apiResponse.Dados = tarefas;
                 apiResponse.Mensagem = "Tarefas listadas com sucesso!";

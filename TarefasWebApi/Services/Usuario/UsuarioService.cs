@@ -7,7 +7,7 @@ namespace TarefasWebApi.Services.Usuario
 {
     public class UsuarioService : IUsuarioService
     {
-        AppDbContext _appDbContext;
+        private readonly AppDbContext _appDbContext;
 
         public UsuarioService(AppDbContext appDbContext)
         {

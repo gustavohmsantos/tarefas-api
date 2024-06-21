@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace TarefasWebApi.Models
 {
@@ -8,11 +9,11 @@ namespace TarefasWebApi.Models
         [Key]
         public int Id { get; set; }
 
-        [Required]
         public string? Nome { get; set; }
 
         public string? Email { get; set; }
 
+        [JsonIgnore]
         public ICollection<TarefaModel> Tarefas { get; set; }
 
     }

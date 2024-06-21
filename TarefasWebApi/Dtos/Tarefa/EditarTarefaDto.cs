@@ -1,4 +1,6 @@
-﻿using TarefasWebApi.Enums;
+﻿using TarefasWebApi.Dtos.Usuario;
+using TarefasWebApi.Dtos.Vinculo;
+using TarefasWebApi.Enums;
 using TarefasWebApi.Models;
 
 namespace TarefasWebApi.Dtos.Tarefa
@@ -9,6 +11,6 @@ namespace TarefasWebApi.Dtos.Tarefa
         public string Nome { get; set; }
         public string Descricao { get; set; }
         public TarefaStatusEnum Status { get; set; }
-        public UsuarioModel Usuario { get; set; }
+        public UsuarioVinculoDto Usuario { get; set; }
     }
 }
